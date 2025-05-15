@@ -1,0 +1,66 @@
+.book-ui{
+    position:absolute;
+    top:10%;
+    left:50%;
+    transform:translateX(-50%);
+    width:70%;
+    height:80%;
+    background-color:rgba(255,255,255,1);
+    border:2px solid #333;
+    border-radius:10px;
+    padding:20px;
+    z-index:1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+}
+.book{
+    position: relative;
+    display: flex;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    width: 90%;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.page{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem 1.5rem;
+    border-right: 1px solid #ccc;
+    white-space: pre-wrap;
+    position: relative;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+.page::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+.page.right{
+    border-right: none;
+}
+.page-number{
+    text-align: center;
+    font-size: 0.9rem;
+    color: black;
+    position:absolute;
+    bottom: 10px;
+    width:100%;
+    font-style: italic;
+}
+.controls{
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1rem;
+    color:#555;
+    font-style: italic;
+}
