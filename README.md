@@ -1,0 +1,1 @@
+# mushroom-hunter-frontend-2025s
