@@ -1,3 +1,4 @@
+import { Effects } from "@react-three/drei"
 import { useThree,useFrame } from "@react-three/fiber"
 import { useEffect, useRef } from "react"
 import * as THREE from "three"
@@ -5,7 +6,7 @@ import * as THREE from "three"
 const SPEED=5
 const rotationSpeed=0.002
 
-export default function Player(){
+export default function Player({onInteract}){
     const {camera,gl,scene}=useThree()
     const keys=useRef({})
     const direction=useRef(new THREE.Vector3())
@@ -44,6 +45,26 @@ export default function Player(){
             document.removeEventListener("mousemove",onMouseMove)
         }
     },[])
+    useEffect(()=>{
+        const handleInteract=(e)=>{
+            if (e.key==="e" || e.key==="E" || e.key==="у" || e.key==="У") {
+                if (!onInteract) return
+
+                const dir=new THREE.Vector3(0,0,-1).applyQuaternion(camera.quaternion)
+                raycaster.current.set(camera.getWorldPosition(new THREE.Vector3()),dir)
+                const intersects=raycaster.current.intersectObjects(scene.children,true)
+                for (let hit of intersects){
+                    const obj=hit.object
+                    if(obj.userData?.interactable){
+                        onInteract(obj)
+                        break
+                    }
+                }
+            }
+        }
+        window.addEventListener("keydown",handleInteract)
+        return ()=>window.removeEventListener("keydown",handleInteract)
+    },[onInteract])
     const treesRef=useRef([]);
     const checkCollisionTrees=(nextPosition)=>{
         let isColliding=false;

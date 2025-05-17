@@ -4,6 +4,7 @@ import "./App.css"
 import BookIcon from "./components/BookIcon"
 import { useState,useEffect } from "react"
 import BookUI from "./components/BookUI"
+import { MushroomsProvider } from "./contexts/MushroomContext"
 
 export default function App(){
   const [bookOpen,setBookOpen]=useState(false)
@@ -17,6 +18,7 @@ export default function App(){
     return () => window.removeEventListener("keydown",handleKeyDown)
   },[])
   return(
+  <MushroomsProvider>
   <div className="canvas-container">
     <div
       style={{
@@ -66,5 +68,6 @@ export default function App(){
       )}
     </div>
   </div>
+  </MushroomsProvider>
   )
 }

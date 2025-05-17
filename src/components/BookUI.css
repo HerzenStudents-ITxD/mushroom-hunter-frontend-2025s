@@ -16,6 +16,14 @@
     align-items: center;
     pointer-events: auto;
 }
+.mushroom-image{
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    margin-top: 10px;
+    border:1px solid #ccc;
+    border-radius: 4px;
+}
 .book{
     position: relative;
     display: flex;
