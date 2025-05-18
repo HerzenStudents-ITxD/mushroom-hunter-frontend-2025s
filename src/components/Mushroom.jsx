@@ -4,13 +4,13 @@ import { OBJLoader, MTLLoader } from "three-stdlib";
 import * as THREE from "three";
 import { useMushrooms } from "../contexts/MushroomContext";
 import { useState } from "react";
-export default function Mushroom({position=[0,0,0],id,info,playerRef}){
+export default function Mushroom({position=[0,0,0],id,info,playerRef,modelPath,mtlPath}){
     const groupRef=useRef();
     const [visible,setVisible]=useState(true)
     const [isHovered,setIsHovered]=useState(false)
     const {collect}=useMushrooms()
-    const materials=useLoader(MTLLoader,"/models/obj_f_1500_v_752.mtl");
-    const obj=useLoader(OBJLoader,"/models/obj_f_1500_v_752.obj",(loader)=>{
+    const materials=useLoader(MTLLoader,mtlPath);
+    const obj=useLoader(OBJLoader,modelPath,(loader)=>{
         materials.preload()
         loader.setMaterials(materials)
     })
@@ -67,12 +67,20 @@ export default function Mushroom({position=[0,0,0],id,info,playerRef}){
     if (!visible) return null
 return(
     <group
+     ref={groupRef}
      position={position}
      scale={[1,1,1]}
      rotation={[Math.PI*1.8,Math.PI,Math.PI/8]}
-     onPointerOver={handlePointOver}
-     onPointerOut={handlePointOut}
-     onClick={handleClick}>
+     >
+        <mesh
+        onPointerOver={handlePointOver}
+        onPointerOut={handlePointOut}
+        onClick={handleClick}
+        visible={false}
+        >
+            <sphereGeometry args={[1.5,16,16]} />
+            <meshBasicMaterial transparent opacity={0} />
+        </mesh>
         {meshes.map((mesh,i)=>(
         <primitive key={i} object={mesh} />
         ))}

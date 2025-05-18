@@ -8,10 +8,10 @@ export default function BookUI({visible,onClose}){
         if(!visible) return
         const handleKey =(e)=>{
             if (e.key==="q" || e.key==="Q" || e.key==="Й" || e.key==="й"){
-                setPage((p)=>Math.max(0,p-2))
+                setPage((p)=>Math.max(0,p-1))
             }
             else if(e.key==="e" || e.key==="E" || e.key==="у" || e.key==="У"){
-                setPage((p)=>Math.min(collected.length-1,p+2))
+                setPage((p)=>Math.min(collected.length-1,p+1))
             }
             else if(e.key==="Escape"){
                 onClose()
@@ -32,8 +32,8 @@ export default function BookUI({visible,onClose}){
                             <>
                             <h3>{mushroom.info.type}</h3>
                             <p>{mushroom.info.description}</p>
-                            {mushroom.info.img && (
-                                <img src={mushroom.info.img} alt={mushroom.info.type} className="mushroom-image" />
+                            {mushroom.info.image && (
+                                <img src={mushroom.info.image} alt={mushroom.info.type} className="mushroom-image" />
                             )} 
                             </>
                         ):"пусто"}
@@ -46,8 +46,8 @@ export default function BookUI({visible,onClose}){
                             <>
                             <h3>{collected[page+1].info.type}</h3>
                             <p>{collected[page+1].info.description}</p>
-                            {collected[page+1].info.img && (
-                                <img src={collected[page+1].info.img} alt={collected[page+1].info.type} className="mushroom-image" />
+                            {collected[page+1].info.image && (
+                                <img src={collected[page+1].info.image} alt={collected[page+1].info.type} className="mushroom-image" />
                             )} 
                             </>
                         ):"пусто"}

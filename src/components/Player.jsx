@@ -66,18 +66,20 @@ export default function Player({onInteract}){
         return ()=>window.removeEventListener("keydown",handleInteract)
     },[onInteract])
     const treesRef=useRef([]);
-    const checkCollisionTrees=(nextPosition)=>{
+    /*const checkCollisionTrees=(nextPosition)=>{
         let isColliding=false;
+        const collisionRadius=0.001
         scene.children.forEach((child)=>{
-            if (child.type==="Group"){
+            if (child.type==="Group" && child.children.some(c=>c.geometry?.type==="CylinderGeometry")){
                 const treeBox=new THREE.Box3().setFromObject(child);
-                if (treeBox.containsPoint(nextPosition)){
+                const distance=treeBox.distanceToPoint(nextPosition);
+                if (distance<collisionRadius){
                     isColliding=true;
                 }
             }
         });
         return isColliding;
-    }
+    }*/
     useFrame((_,delta)=>{
         playerRef.current.rotation.y-=mouseMovement.current.x*rotationSpeed
         pitchRef.current.rotation.x-=mouseMovement.current.y*rotationSpeed
@@ -107,13 +109,16 @@ export default function Player({onInteract}){
             .multiplyScalar(SPEED*delta)
         
         const nextPosition=playerRef.current.position.clone().add(move)
-        if (!checkCollisionTrees(nextPosition)){
+        raycaster.current.set(nextPosition.clone().add(new THREE.Vector3(0,1,0)),down)
+        const intersects=raycaster.current.intersectObjects(scene.children,true)
+        /*if (!checkCollisionTrees(nextPosition)){
             raycaster.current.set(nextPosition.clone().add(new THREE.Vector3(0,1,0)),down)
-            const intersects=raycaster.current.intersectObjects(scene.children,true)
+            const intersects=raycaster.current.intersectObjects(scene.children,true)*/
         if (intersects.length>0){
             const groundY=intersects[0].point.y
             nextPosition.y=groundY+1.7
-            playerRef.current.position.copy(nextPosition)
-        }}});
+        }
+        playerRef.current.position.copy(nextPosition)
+    });
     return(null)
 }

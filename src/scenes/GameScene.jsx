@@ -4,7 +4,7 @@ import Sky from "../components/Sky"
 import Trees from "../components/Trees"
 import Mushroom from "../components/Mushroom"
 import { useMushrooms } from "../contexts/MushroomContext"
-
+import { mushroomsData } from "../components/MushroomsData"
 
 export default function GameScene(){
     const {collect}=useMushrooms()
@@ -19,12 +19,17 @@ export default function GameScene(){
             <Sky />
             <Player />
             <Trees/>
+            {mushroomsData.map((mushroom)=>
             <Mushroom
-            position={[10,4.35,2]}
-            id="mushroom1"
-            info={{type:"fungus",
-            description:"mushroom",
-            img:"/images/kozlac.jpg"}}/>
+            key={mushroom.id}
+            id={mushroom.id}
+            info={mushroom.info}
+            position={mushroom.position}
+            modelPath={mushroom.modelPath}
+            mtlPath={mushroom.mtlPath}
+            playerRef={mushroom.playerRef}
+            />
+            )}
         </>
     )
 }
