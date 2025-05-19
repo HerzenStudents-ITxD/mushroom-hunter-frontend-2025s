@@ -1,0 +1,11 @@
+Model Information:
+* title:	Mushroom - Boletus kind - MidPoly
+* source:	https://sketchfab.com/3d-models/mushroom-boletus-kind-midpoly-7902290b37244ea7acbbc00f0dddbc0b
+* author:	MushyDay (https://sketchfab.com/MushyDay)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Mushroom - Boletus kind - MidPoly" (https://sketchfab.com/3d-models/mushroom-boletus-kind-midpoly-7902290b37244ea7acbbc00f0dddbc0b) by MushyDay (https://sketchfab.com/MushyDay) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

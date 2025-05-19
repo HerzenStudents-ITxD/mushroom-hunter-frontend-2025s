@@ -4,22 +4,21 @@ import { useMushrooms } from "../contexts/MushroomContext"
 export default function BookUI({visible,onClose}){
     const [page,setPage]=useState(0)
     const {collected}=useMushrooms()
-    useEffect(()=>{
-        if(!visible) return
-        const handleKey =(e)=>{
-            if (e.key==="q" || e.key==="Q" || e.key==="Й" || e.key==="й"){
-                setPage((p)=>Math.max(0,p-1))
+    useEffect(() => {
+        if (!visible) return;
+        const handleKey = (e) => {
+            if (e.key === "q" || e.key === "Q" || e.key === "Й" || e.key === "й") {
+                setPage((p) => Math.max(0, p - 2));
+            } else if (e.key === "e" || e.key === "E" || e.key === "у" || e.key === "У") {
+                setPage((p) => (p + 2 < collected.length ? p + 2 : p));
+            } else if (e.key === "Escape") {
+                onClose();
             }
-            else if(e.key==="e" || e.key==="E" || e.key==="у" || e.key==="У"){
-                setPage((p)=>Math.min(collected.length-1,p+1))
-            }
-            else if(e.key==="Escape"){
-                onClose()
-            }
-        }
-        window.addEventListener("keydown",handleKey)
-        return ()=>window.removeEventListener("keydown",handleKey)
-    },[visible,collected.length,onClose])
+        };
+        window.addEventListener("keydown", handleKey);
+        return () => window.removeEventListener("keydown", handleKey);
+    }, [visible, collected.length, onClose]);
+
 
     if (!visible) return null
     const mushroom=collected[page]

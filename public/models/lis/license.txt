@@ -1,0 +1,11 @@
+Model Information:
+* title:	Chanterelle Mushroom
+* source:	https://sketchfab.com/3d-models/chanterelle-mushroom-b354bcc29da344d3b029b49eabf261f2
+* author:	ericsem (https://sketchfab.com/ericsem)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Chanterelle Mushroom" (https://sketchfab.com/3d-models/chanterelle-mushroom-b354bcc29da344d3b029b49eabf261f2) by ericsem (https://sketchfab.com/ericsem) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,25 +1,64 @@
-import { useMemo } from "react"
-import * as THREE from "three"
+import { useEffect,useState } from "react"
+import "./BookUI.css"
+import { useMushrooms } from "../contexts/MushroomContext"
+export default function BookUI({visible,onClose}){
+    const [page,setPage]=useState(0)
+    const {collected}=useMushrooms()
+    useEffect(() => {
+        if (!visible) return;
+        const handleKey = (e) => {
+            if (e.key === "q" || e.key === "Q" || e.key === "Й" || e.key === "й") {
+                setPage((p) => Math.max(0, p - 2));
+            } else if (e.key === "e" || e.key === "E" || e.key === "у" || e.key === "У") {
+                setPage((p) => (p + 2 < collected.length ? p + 2 : p));
+            } else if (e.key === "Escape") {
+                onClose();
+            }
+        };
+        window.addEventListener("keydown", handleKey);
+        return () => window.removeEventListener("keydown", handleKey);
+    }, [visible, collected.length, onClose]);
 
-export default function Forest(){
-    const geometry=useMemo(()=>{
-        const geom=new THREE.PlaneGeometry(200,200,100,100)
-        const pos=geom.attributes.position
 
-        for (let i=0;i<pos.count;i++){
-            const y=2*Math.sin(pos.getX(i)*0.1)+2*Math.cos(pos.getY(i)*0.1)
-            pos.setZ(i,y)
-        }
-        pos.needsUpdate=true
-        geom.computeVertexNormals()
-        geom.rotateX(-Math.PI/2)
-        return geom
-    },[])
+    if (!visible) return null
+    const mushroom=collected[page]
     return(
-        <>
-        <mesh geometry={geometry} receiveShadow name="ground">
-            <meshStandardMaterial color="green" />
-        </mesh>
-        </>
-    );
+        <div className="book-ui">
+            <div className="book">
+                <div className="page left">
+                    <div className="page-content">
+                        {mushroom ? (
+                            <>
+                            <h3>{mushroom.info.type}</h3>
+                            <p>{mushroom.info.description}</p>
+                            {mushroom.info.image && (
+                                <img src={mushroom.info.image} alt={mushroom.info.type} className="mushroom-image" />
+                            )} 
+                            </>
+                        ):"пусто"}
+                    </div>
+                    <div className="page-number">{page+1}</div>
+                </div>
+                <div className="page right">
+                    <div className="page-content">
+                        {collected[page+1] ? (
+                            <>
+                            <h3>{collected[page+1].info.type}</h3>
+                            <p>{collected[page+1].info.description}</p>
+                            {collected[page+1].info.image && (
+                                <img src={collected[page+1].info.image} alt={collected[page+1].info.type} className="mushroom-image" />
+                            )} 
+                            </>
+                        ):"пусто"}
+                    </div>
+                    <div className="page-number">{page+2<=collected.length ? page+2:""}</div>
+                </div>
+            </div>
+            <div className="controls">
+                <span>Q:влево</span>
+                <span>Esc:закрыть</span>
+                <span>E:вправо</span>
+            </div>
+        </div>
+    )
 }

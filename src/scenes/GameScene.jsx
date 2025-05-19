@@ -24,7 +24,9 @@ export default function GameScene(){
             key={mushroom.id}
             id={mushroom.id}
             info={mushroom.info}
-            position={mushroom.position}
+            //position={mushroom.position}
+            scale={mushroom.scale}
+            rotation={mushroom.rotation}
             modelPath={mushroom.modelPath}
             mtlPath={mushroom.mtlPath}
             playerRef={mushroom.playerRef}

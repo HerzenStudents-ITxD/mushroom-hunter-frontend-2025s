@@ -5,7 +5,7 @@ import BookIcon from "./components/BookIcon"
 import { useState,useEffect } from "react"
 import BookUI from "./components/BookUI"
 import { MushroomsProvider } from "./contexts/MushroomContext"
-
+import MushroomsCounter from "./components/MushroomsCounter";
 export default function App(){
   const [bookOpen,setBookOpen]=useState(false)
   useEffect(()=>{
@@ -57,6 +57,7 @@ export default function App(){
     <Canvas shadows camera={{position:[0,2,5],fov:75}}>
       <GameScene />
     </Canvas>
+    <MushroomsCounter />
     <div className="ui-overlay" style={{position:"absolute",top:0,left:0,width:"100%",height:"100%",pointerEvents:"none"}}>
       <div style={{position:"absolute",top:20,right:20,pointerEvents:"auto"}}>
         <BookIcon onClick={()=>setBookOpen(true)} />

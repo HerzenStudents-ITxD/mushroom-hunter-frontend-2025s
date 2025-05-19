@@ -1,0 +1,11 @@
+Model Information:
+* title:	Shaggy Parasol Mushroom (Chlorophyllum rhacodes)
+* source:	https://sketchfab.com/3d-models/shaggy-parasol-mushroom-chlorophyllum-rhacodes-251e85668daf45ccb6f14d51c584920b
+* author:	samuelnorth (https://sketchfab.com/samnorth)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Shaggy Parasol Mushroom (Chlorophyllum rhacodes)" (https://sketchfab.com/3d-models/shaggy-parasol-mushroom-chlorophyllum-rhacodes-251e85668daf45ccb6f14d51c584920b) by samuelnorth (https://sketchfab.com/samnorth) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
