@@ -28,7 +28,6 @@ export const mushroomsData=[
         id:"mushroom-3",
         modelPath:`${import.meta.env.BASE_URL}models/opyata/scene.gltf`,
         mtlPath:"",
-        //position:[1,2.8,6],
         scale:[20,20,20],
         rotation: [Math.PI*2, Math.PI, Math.PI*1.95 ],
         info:{
@@ -42,7 +41,6 @@ export const mushroomsData=[
         id:"mushroom-4",
         modelPath:`${import.meta.env.BASE_URL}models/zont/scene.gltf`,
         mtlPath:"",
-        //position:[1,2.8,6],
         scale:[0.005,0.005,0.005],
         rotation: [Math.PI*2, Math.PI, Math.PI*1.95 ],
         info:{
@@ -56,7 +54,6 @@ export const mushroomsData=[
         id:"mushroom-5",
         modelPath:`${import.meta.env.BASE_URL}models/champ/scene.gltf`,
         mtlPath:"",
-        //position:[1,2.8,6],
         scale:[1,1,1],
         rotation: [Math.PI*2, Math.PI, Math.PI*1.95 ],
         info:{
@@ -70,7 +67,6 @@ export const mushroomsData=[
         id:"mushroom-6",
         modelPath:`${import.meta.env.BASE_URL}models/bolt/scene.gltf`,
         mtlPath:"",
-        //position:[1,2.8,6],
         scale:[1,1,1],
         rotation: [Math.PI*2, Math.PI, Math.PI*1.95 ],
         info:{
@@ -84,7 +80,6 @@ export const mushroomsData=[
         id:"mushroom-7",
         modelPath:`${import.meta.env.BASE_URL}models/lis/scene.gltf`,
         mtlPath:"",
-        //position:[1,2.8,6],
         scale:[1,1,1],
         rotation: [Math.PI*2, Math.PI, Math.PI*1.95 ],
         info:{
