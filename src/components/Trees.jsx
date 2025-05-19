@@ -6,7 +6,7 @@ import { useGLTF } from "@react-three/drei";
 export default function Trees() {
     const { scene } = useThree();
     const [treeData, setTreeData] = useState([]);
-    const gltf = useGLTF("/models/tree/scene.gltf"); // .gltf с .bin и текстурами
+    const gltf = useGLTF(`${import.meta.env.BASE_URL}models/tree/scene.gltf`); 
 
     useEffect(() => {
         const raycaster = new THREE.Raycaster();
